@@ -63,6 +63,7 @@ body {
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 0px;
+    will-change: height;
     transition: height .3s ease;
     position: absolute;
     left: 0px;
