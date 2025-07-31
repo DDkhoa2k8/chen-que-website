@@ -1,0 +1,106 @@
+html, body {
+    height: 100%;
+    margin: 0%;
+}
+
+body {
+    background-color: black;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+.warn {
+    height: 42px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    align-content: center;
+}
+
+.nav {
+    --nav-height:52px;
+    height: var(--nav-height);
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top:0px;
+    box-sizing: border-box;
+}
+
+.cen_nav {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_left {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+    color: white;
+}
+
+.nav-item {
+    text-align: center;
+    font-weight: bold;
+    align-content: center;
+    font-size: 12px;
+}
+
+.nav-item:hover {
+    color: red;
+}
+
+.nav-sp-list {
+    --drop-height:300px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 0px;
+    transition: height .3s ease;
+    position: absolute;
+    left: 0px;
+    top:var(--nav-height);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.nav-item:hover .nav-sp-list {
+    height: var(--drop-height);
+}
+
+.nav-sp-con {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+
+.nav-sp {
+    height: var(--drop-height);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.sp-img {
+    height: calc(.8 * var(--drop-height));
+    background-color: rgb(219, 219, 219);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.sp-name {
+    color: rgb(0, 0, 0) !important;
+}
