@@ -7,13 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="age-verify-con">
+        <div class="age-verify"></div>
+    </div>
     <div class="warn"><strong>Hãy là người tiêu dùng thông thái – uống có trách nhiệm, sống vui khỏe.</strong></div>
     <div class="nav">
         <div class="cen_nav">
-            <img src="img/Logo chen que2-01.svg" alt="logo" height="40px">
+            <img src="img/Logo chen que2-01.svg" alt="logo" height="40px" class="no-drag">
             <div class="nav_left">
                 <div class="nav-item">TRANG CHỦ</div>
                 <div class="nav-item">
+                    <div class="back-drop"></div>
                     SẢN PHẨM
                     <div class="nav-sp-list">
                         <div class="nav-sp-con">
@@ -37,13 +41,61 @@
             </div>
         </div>
     </div>
-    <div class="banner box"></div>
-    <div class="box">
-        <div id="ruou-img-con">
-            <img src="video/ruou16.png" id="ruou-img" alt="">
+    <div class="banner box">
+        <video id="myVideo" autoplay muted playsinline>
+            <source src="video/banner.mp4" type="video/mp4">
+            <!-- Trình duyệt của bạn không hỗ trợ video. -->
+        </video>
+    </div>
+    <div class="box section_2">
+        <div style="display: flex;justify-content: center;align-items: center;" id="muc_1_con">
+            <img src="./img/muc_1.webp" class="muc_1" id="muc_1">
+            <div id="ruou-img-con">
+                <img src="video/ruou16.png" id="ruou-img" alt="">
+            </div>
+        </div>
+        <div class="box-text">
+            <h1>Bộ sưu tập rượu thượng hạng</h1>
+            <h3>
+                Chúng tôi tuyển chọn các dòng rượu vang, rượu mạnh và rượu thủ công chất lượng cao từ khắp nơi trên thế giới. Mỗi
+                chai đều mang hương vị độc đáo, phù hợp cho những buổi tiệc sang trọng, quà tặng tinh tế hoặc khoảnh khắc thư giãn
+                riêng tư.
+                Từ vị trái cây tươi mát đến hương gỗ sồi trầm ấm — tất cả đều có tại đây.
+            </h3>
+            <!-- <button>Đặt mua ngay</button> -->
         </div>
     </div>
-    <img src="video/ruou16.png" id="cen_banner" style="position:absolute;opacity: 0;">
+    <img src="video/ruou.png" id="cen_banner" style="position:absolute;opacity: 0;pointer-events: none;">
+    <div class="section_3 box">
+        <div id="title">
+            <h1>Khám phá</h1>
+            <h2>các sản phẩm nổi bật</h2>
+        </div>
+        <div class="sec3-sp-list">
+            <div class="behind">
+                <div id="strip-con">
+                    <div class="strip" id="strip"></div>
+                </div>
+            </div>
+            <div class="nav-sp-list">
+                <div class="nav-sp-con">
+                    <div class="nav-sp">
+                        <div class="sp-img" style="background-image: url('img/ruou_gao.png');"></div>
+                        <div class="sp-name">Rượu gạo</div>
+                    </div>
+                    <div class="nav-sp">
+                        <div class="sp-img" style="background-image: url('img/ruou_gao.png');" id="ruou2-check-point"></div>
+                        <div class="sp-name">Rượu gạo</div>
+                    </div>
+                    <div class="nav-sp">
+                        <div class="sp-img" style="background-image: url('img/ruou_gao.png');"></div>
+                        <div class="sp-name">Rượu gạo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="img/ruou_gao.png" id="ruou2" style="position:absolute;opacity: 0;pointer-events: none;object-fit: cover;">
     <script src="index_script.js"></script>
     <div style="height: 10000px;width: 10px;"></div>
 </body>
