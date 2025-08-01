@@ -10,6 +10,7 @@ const ruou2 = document.getElementById("ruou2");
 const ruouImgList = [];
 const startSize = 800;
 const endSize = 500;
+let ruouHeight = startSize;
 
 async function preLoadRuou() {
     for (let i = 1; i <= frameCount;i++) {
@@ -28,6 +29,7 @@ window.onload = async function () {
         if (window.scrollY < endScroll) {
             ruouImgCon.innerHTML = "";
             ruouImgCon.appendChild(ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))]);
+            ruouImgCon.children[0].height = ruouHeight;
         }
     });
 
@@ -59,7 +61,7 @@ function moveRuou(p) {
 
     ruouImgCon.style.top = `${(rectCenBanner.y - rectRuou.y) * (1 - p)}px`;
     ruouImgCon.style.left = `${(rectCenBanner.x - rectRuou.x) * (1 - p)}px`;
-    ruouImgCon.children[0].style.height = `${endSize * p + startSize * (1 - p)}px`;
+    ruouHeight = `${endSize * p + startSize * (1 - p)}px`;
 }
 
 function updateRuou() {
