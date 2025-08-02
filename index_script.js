@@ -72,10 +72,16 @@ function moveRuou(p) {
     ruouHeight = `${endSize * p + startSize * (1 - p)}px`;
     // ruouImgCon.children[0].style.height = ruouHeight;
 }
-let ot = 0;
+// let ot = 0;
+
+const rice_img = 0;
 
 function updateRuou(t) {
     if (window.scrollY > sec4_state_1.offsetTop) { 
+        let progress = (window.scrollY - endScroll2) / (sec4_state_1.offsetTop - endScroll2);
+
+        
+
         requestAnimationFrame(updateRuou);
         return;
     } else if (window.scrollY > endScroll2) {
