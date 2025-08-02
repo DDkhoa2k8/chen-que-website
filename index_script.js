@@ -14,6 +14,7 @@ let ruouHeight = startSize;
 let img;
 let change = false;
 let deg = 40;
+const sec4_state_1 = document.getElementById("sec4_state_1");
 
 async function preLoadRuou() {
     for (let i = 1; i <= frameCount;i++) {
@@ -74,7 +75,9 @@ function moveRuou(p) {
 let ot = 0;
 
 function updateRuou(t) {
-    if (window.scrollY > endScroll2) {
+    if (window.scrollY > sec4_state_1.offsetTop) { 
+        
+    } else if (window.scrollY > endScroll2) {
         ruou2.style.opacity = 0;
         ruou2CP.style.opacity = 1;
         requestAnimationFrame(updateRuou);
