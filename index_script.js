@@ -76,12 +76,13 @@ let ot = 0;
 
 function updateRuou(t) {
     if (window.scrollY > sec4_state_1.offsetTop) { 
-        
+        requestAnimationFrame(updateRuou);
+        return;
     } else if (window.scrollY > endScroll2) {
         ruou2.style.opacity = 0;
         ruou2CP.style.opacity = 1;
         requestAnimationFrame(updateRuou);
-        return; 
+        return;
     } else if (window.scrollY > stayScroll) {
         ruouImgCon.style.opacity = 0;
         ruou2CP.style.opacity = 0;

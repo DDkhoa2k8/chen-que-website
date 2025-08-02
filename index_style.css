@@ -496,3 +496,7 @@ div>:has(.sp-btn) {
     height: 200px;
     background-color: black;
 }
+
+#sec4_state_1 {
+    height: 100vh;
+}
