@@ -3,6 +3,10 @@ html, body {
     margin: 0%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: rgb(255, 255, 255);
     overflow-x: hidden;
@@ -10,6 +14,10 @@ body {
 
 * {
     font-family: sans-serif;
+}
+
+:root {
+    --nav-height: 52px;
 }
 
 .warn {
@@ -23,10 +31,10 @@ body {
 }
 
 .nav {
-    --nav-height:52px;
+    /* --nav-height: 52px; */
     height: var(--nav-height);
     width: 100%;
-    background-color: #A00001;
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     position: sticky;
@@ -65,7 +73,7 @@ body {
     position: absolute;
     top:0px;
     left: 0px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(10px);
     display: none;
     z-index: -1;
     pointer-events: none;
@@ -135,13 +143,166 @@ body {
 }
 
 .banner {
-    /* background-color: rgb(255, 255, 255); */
-    /* background-image: url('img/null_img.svg'); */
-    /* background-image: url('video/banner.mp4'); */
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-color: rgb(53 57 159);
+    display: flex;
+    flex-direction: column;
+}
+
+.circle {
+    --radius:40vh;
+    border-radius: 100%;
+    height: var(--radius);
+    width: var(--radius);
+    background-color: #175BAA;
+    position: absolute;
+    z-index: 0;
+    margin-left: 5vw;
+}
+
+div>:has(.btn) {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background-color: white;
+    height: 100%;
+    width: max-content;
+    border-radius: 10px;
+    color: #313FF8 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+.left {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    /* background-color: #A00001; */
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 15vh;
+    padding-bottom: 30vh;
+    box-sizing: border-box;
+}
+
+.left .small-box {
+    margin: 0% !important;
+    /* height: 70px !important; */
+    width: fit-content !important;
+    padding: 10px !important;
+    justify-content: center;
+    /* align-items: center; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left .small-box :is(p, h1) {
+    margin: 0%;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1vw;
+}
+
+.left .small-box h1 {
+    font-size: 5vw !important;
+}
+
+.left .small-box:nth-child(2) {
+    margin-left: 100px !important;
+}
+
+.left .small-box:nth-child(3) {
+    margin-left: 200px !important;
+}
+
+.btn:hover {
+    background-color: rgb(157, 209, 255);
+}
+
+.banner .header {
+    margin-top: 120px;
+    font-size: 5vw;
+    line-height: 6vh;
+}
+
+.banner .sub {
+    font-size: 7vw;
+}
+
+.banner .small-box {
+    border-radius: 10px;
+    width: 20vw;
+    background-color: #0F1B64;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 20px;
+}
+
+div>:has(.input) {
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width:auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 3px solid #dcdcdc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.banner :is(.sub, .header, .small-box, .input, .sp-btn) {
+    margin-left: 10vw;
+    position: relative;
+    z-index: 1;
+    height: min-content;
+}
+
+div>:has(.sp-btn) {
+    gap: 15px;
+}
+
+.sp-btn {
+    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    align-items: end;
+    background-image:
+            linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+            url('img/btn-sp.png');
     background-position: center;
-    /* display: flex; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform .3s ease;
+}
+
+.sp-btn:hover {
+    transform: scale(1.1);
+}
+
+.sp-btn:not(:first-child) {
+    margin-left: 0px !important;
+}
+
+.banner .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.banner * {
+    color: white;
+    font-family: 'Playfair Display', serif;
 }
 
 .banner video {
@@ -163,11 +324,13 @@ body {
     width: fit-content;
     height: fit-content;
     pointer-events: none;
+    /* transform: rotate(40deg); */
 }
 
 #ruou-img, #cen_banner {
-    /* border: 1px solid rgb(117, 117, 117); */
+    /* border: 1px solid rgb(0, 255, 0); */
     height: 800px;
+    /* transform: scaleX(-1); */
 }
 
 .box-text {
@@ -283,6 +446,7 @@ body {
     height: var(--sp-height);
     background-color: transparent;
     overflow:visible;
+    position: static;
 }
 
 .sec3-sp-list .nav-sp .sp-img {
@@ -303,4 +467,24 @@ body {
     text-align: center;
     font-weight:bold;
     text-transform: uppercase;
+}
+
+.sec4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top:var(--nav-height);
+    height: calc(100vh - var(--nav-height)) !important;
+}
+
+.small-img {
+    background-color: #0F1B64;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('img/gao.jpg');
+    height: 80%;
+    aspect-ratio: 1.5 / 1;
+    border-radius: 50px;
 }

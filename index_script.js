@@ -11,6 +11,9 @@ const ruouImgList = [];
 const startSize = 800;
 const endSize = 500;
 let ruouHeight = startSize;
+let img;
+let change = false;
+let deg = 40;
 
 async function preLoadRuou() {
     for (let i = 1; i <= frameCount;i++) {
@@ -27,9 +30,11 @@ window.onload = async function () {
 
     window.addEventListener('scroll', e => { 
         if (window.scrollY < endScroll) {
-            ruouImgCon.innerHTML = "";
-            ruouImgCon.appendChild(ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))]);
-            ruouImgCon.children[0].style.height = ruouHeight;
+            // ruouImgCon.innerHTML = "";
+            // ruouImgCon.appendChild(ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))]);
+            // ruouImgCon.children[0].style.height = ruouHeight;
+            img = ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))];
+            change = true;
         }
     });
 
@@ -42,7 +47,7 @@ function centerBanner() {
     const rect = cen_banner.getBoundingClientRect();
 
     cen_banner.style.top = `${window.innerHeight / 2 - rect.height / 2}px`;
-    cen_banner.style.left = `${window.innerWidth / 2 - rect.width / 2}px`;
+    cen_banner.style.left = `${window.innerWidth / 1.8 - rect.width / 2}px`;
 }
 
 window.addEventListener('resize', e => {
@@ -54,18 +59,21 @@ window.addEventListener('resize', e => {
 
 function moveRuou(p) {
     ruouImgCon.style.top = "0px";
-    ruouImgCon.style.left ="0px";
+    ruouImgCon.style.left = "0px";
+    // cen_banner.style.transform = `rotate(${40 * (1 - p)}deg)`;
 
     const rectRuou = ruouImgCon.getBoundingClientRect();
     const rectCenBanner = cen_banner.getBoundingClientRect();
 
     ruouImgCon.style.top = `${(rectCenBanner.y - rectRuou.y) * (1 - p)}px`;
     ruouImgCon.style.left = `${(rectCenBanner.x - rectRuou.x) * (1 - p)}px`;
+    // ruouImgCon.style.transform = `rotate(${40 * (1 - p)}deg)`;
     ruouHeight = `${endSize * p + startSize * (1 - p)}px`;
-    ruouImgCon.children[0].style.height = ruouHeight;
+    // ruouImgCon.children[0].style.height = ruouHeight;
 }
+let ot = 0;
 
-function updateRuou() {
+function updateRuou(t) {
     if (window.scrollY > endScroll2) {
         ruou2.style.opacity = 0;
         ruou2CP.style.opacity = 1;
@@ -77,6 +85,8 @@ function updateRuou() {
 
         const ruou_rect = ruouImgCon.getBoundingClientRect();
         const ruouCP_rect = ruou2CP.getBoundingClientRect();
+        // console.log(ruou_rect.y, ruou_rect.x, ruouCP_rect.y, ruouCP_rect.x, `fps:${(1000 / (t - ot) < 120 ? "low":"")}`);
+        // ot = t;
 
         let progress = (window.scrollY - stayScroll) / (endScroll2 - stayScroll);
         ruou2.style.height = `${ruou_rect.height}px`;
@@ -98,6 +108,13 @@ function updateRuou() {
 
     let progress = window.scrollY / endScroll;
     moveRuou(progress);
+
+    if (change) {
+        change = false;
+        ruouImgCon.innerHTML = "";
+        ruouImgCon.appendChild(ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))]);
+        ruouImgCon.children[0].style.height = ruouHeight;
+    }
 
     requestAnimationFrame(updateRuou);
 }
