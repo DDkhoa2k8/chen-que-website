@@ -72,24 +72,50 @@ function moveRuou(p) {
     ruouHeight = `${endSize * p + startSize * (1 - p)}px`;
     // ruouImgCon.children[0].style.height = ruouHeight;
 }
-// let ot = 0;
+let ot = 0;
 
-const rice_img = 0;
+const rice_img = document.getElementById("small-img");
+const top_filter = document.getElementById("top-filter");
+let state1_length = window.innerHeight;
+let scrollTo;
+let curScroll = 0;
+
+const nl = document.getElementById('nguyen-lieu-con');
+const cn = document.getElementById('chuyen-nghiep');
+let endNL = 1.3;
+let startCN = 1.6;
+let endCN_clear = 2;
+let endCN_show_header = 2.2;
 
 function updateRuou(t) {
-    if (window.scrollY > sec4_state_1.offsetTop) { 
-        let progress = (window.scrollY - endScroll2) / (sec4_state_1.offsetTop - endScroll2);
+    curScroll += (window.scrollY - curScroll) * (t - ot) * .005;
+    ot = t;
 
-        
+    {
+        let progress = (curScroll - sec4_state_1.offsetTop) / state1_length;
+        let local_progress = Math.min(Math.max(progress, 0), 1);
 
-        requestAnimationFrame(updateRuou);
-        return;
-    } else if (window.scrollY > endScroll2) {
+        rice_img.style.width = `${60 + 40 * local_progress}%`;
+        top_filter.style.opacity = local_progress;
+        top_filter.style.transform = `scale(${1.2 - .2 * local_progress})`;
+
+        local_progress = (Math.min(Math.max(progress, 1), endNL) - 1) * (1 / (endNL - 1));
+
+        nl.style.opacity = local_progress;
+
+        local_progress = (Math.min(Math.max(progress, startCN), endCN_clear) - startCN) * (1 / (endCN_clear - startCN));
+
+        cn.style.opacity = local_progress;
+    }
+
+    if (window.scrollY > endScroll2) {
         ruou2.style.opacity = 0;
         ruou2CP.style.opacity = 1;
         requestAnimationFrame(updateRuou);
         return;
-    } else if (window.scrollY > stayScroll) {
+    }
+
+    if (window.scrollY > stayScroll) {
         ruouImgCon.style.opacity = 0;
         ruou2CP.style.opacity = 0;
 
@@ -101,13 +127,15 @@ function updateRuou(t) {
         let progress = (window.scrollY - stayScroll) / (endScroll2 - stayScroll);
         ruou2.style.height = `${ruou_rect.height}px`;
         ruou2.style.top = `${(ruouCP_rect.y - ruou_rect.y) * progress + (ruou_rect.y + window.scrollY)}px`;
-        ruou2.style.left = `${(ruouCP_rect.x - ruou_rect.x) * progress + ruou_rect.x}px`; 
+        ruou2.style.left = `${(ruouCP_rect.x - ruou_rect.x) * progress + ruou_rect.x}px`;
         ruou2.style.opacity = 1;
         ruou2.style.height = `${ruou_rect.height * (1 - progress) + ruouCP_rect.height * progress}px`;
-        ruou2.style.width = `${ruou_rect.width* (1 - progress) + ruouCP_rect.width* progress}px`;
+        ruou2.style.width = `${ruou_rect.width * (1 - progress) + ruouCP_rect.width * progress}px`;
         requestAnimationFrame(updateRuou);
         return;
-    } else if (window.scrollY > endScroll) {
+    }
+    
+    if (window.scrollY > endScroll) {
         requestAnimationFrame(updateRuou);
         return;
     }

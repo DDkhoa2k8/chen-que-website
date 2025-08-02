@@ -479,6 +479,7 @@ div>:has(.sp-btn) {
     position: sticky;
     top:var(--nav-height);
     height: calc(100vh - var(--nav-height)) !important;
+    overflow: hidden;
 }
 
 .small-img {
@@ -486,9 +487,9 @@ div>:has(.sp-btn) {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('img/gao.jpg');
-    height: 80%;
-    aspect-ratio: 1.5 / 1;
+    background-image: url('img/dong_bang.webp');
+    width: 60%;
+    aspect-ratio: 2000 / 1332;
     border-radius: 50px;
 }
 
@@ -498,5 +499,76 @@ div>:has(.sp-btn) {
 }
 
 #sec4_state_1 {
-    height: 100vh;
+    height: 0vh;
+}
+
+.top-filter {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    overflow: hidden;
+
+    -webkit-mask-image: url('img/chen_que.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: cover;
+
+    mask-image: url('img/chen_que.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+}
+
+.nguyen-lieu-con {
+    margin-top: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 500px;
+    width: 50vw;
+    gap: 20px;
+}
+
+.nguyen-lieu-con .header {
+    font-size: 8vh;
+    font-weight: bold;
+}
+
+.nguyen-lieu-con .text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.chuyen-nghiep {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: end;
+}
+
+.chuyen-nghiep .header {
+    font-size: 8vh;
+    font-weight: bold;
+    color: #A00001;
+}
+
+.chuyen-nghiep .text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.cn-img {
+    height: 100%;
+    width: 20%;
+    background-color: #175BAA;
 }
