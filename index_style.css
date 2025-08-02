@@ -476,7 +476,7 @@ div>:has(.sp-btn) {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: sticky; */
+    position: sticky;
     top:var(--nav-height);
     height: calc(100vh - var(--nav-height)) !important;
 }
