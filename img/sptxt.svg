@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1500" viewBox="0 0 1920 1500">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 128.923px;
+        font-family: "Birds of Paradise  Personal use";
+      }
+
+      .cls-1,
+      .cls-6 {
+        text-anchor: middle;
+      }
+
+      .cls-1,
+      .cls-4,
+      .cls-5,
+      .cls-6 {
+        fill: #c01111;
+      }
+
+      .cls-2,
+      .cls-6 {
+        font-family: "iCiel Samsung Sharp Sans";
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-size: 96.692px;
+      }
+
+      .cls-3 {
+        font-size: 96.771px;
+      }
+
+      .cls-4,
+      .cls-7 {
+        font-size: 54.192px;
+        font-family: "Albula Pro";
+      }
+
+      .cls-5 {
+        fill-rule: evenodd;
+      }
+
+      .cls-6 {
+        font-size: 300px;
+      }
+
+      .cls-7 {
+        fill: #fff;
+        text-anchor: end;
+      }
+    </style>
+  </defs>
+  <text id="Sản_phẩm_Việt" data-name="Sản phẩm Việt" class="cls-4"
+    transform="translate(1179.07 1103.05) scale(1.292)">Sản phẩm Việt</text>
+  <text id="quê" class="cls-6" x="1260.499" y="1023.5">
+    <tspan x="1260.499">quê</tspan>
+  </text>`
+</svg>

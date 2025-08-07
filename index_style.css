@@ -143,14 +143,14 @@ body {
     display: flex;
 }
 
-.banner {
+/* .banner {
     background-color: rgb(53 57 159);
     display: flex;
     flex-direction: column;
     width: 100% !important;
-}
+} */
 
-.circle {
+/* .circle {
     --radius:40vh;
     border-radius: 100%;
     height: var(--radius);
@@ -186,7 +186,6 @@ div>:has(.btn) {
     position: absolute;
     right: 0px;
     height: 100%;
-    /* background-color: #A00001; */
     width: 40vw;
     display: flex;
     flex-direction: column;
@@ -198,11 +197,9 @@ div>:has(.btn) {
 
 .left .small-box {
     margin: 0% !important;
-    /* height: 70px !important; */
     width: fit-content !important;
     padding: 10px !important;
     justify-content: center;
-    /* align-items: center; */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -234,9 +231,9 @@ div>:has(.btn) {
     margin-top: 120px;
     font-size: 5vw;
     line-height: 6vh;
-}
+} */
 
-.banner .sub {
+/* .banner .sub {
     font-size: 7vw;
 }
 
@@ -312,6 +309,50 @@ div>:has(.sp-btn) {
     width: 100%;
     object-position: center;
     object-fit: cover;
+} */
+
+.banner {
+    background-image: url("img/banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .header {
+    font-weight: bold;
+    font-size: 25vh;
+    color: #A00001;
+    font-family: sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 20vw;
+}
+
+@font-face {
+    font-family: 'Birds of Paradise - Personal use Only. Version 2.000';
+    src: url('font/font-chim.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.banner .header>span {
+    font-family: 'Birds of Paradise - Personal use Only. Version 2.000' !important;
+    font-weight: normal !important;
+    transform: skewX(10deg);
+}
+
+.banner .sub {
+    background-image: url('img/que.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    z-index: 2;
+    aspect-ratio: 1920 / 1500;
 }
 
 .section_2 {
@@ -323,10 +364,11 @@ div>:has(.sp-btn) {
 
 #ruou-img-con  {
     position: relative;
-    width: fit-content;
+    width: 500px;
     height: fit-content;
     pointer-events: none;
     z-index: 1;
+    /* transform-origin: center; */
     /* transform: rotate(40deg); */
 }
 

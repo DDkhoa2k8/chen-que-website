@@ -5,6 +5,7 @@ let endScroll = window.innerHeight;
 let stayScroll = endScroll + stay;
 let endScroll2 = endScroll * 2;
 const ruouImgCon = document.getElementById("ruou-img-con");
+const ruouImg = document.getElementById("ruou-img");
 const ruou2CP = document.getElementById("ruou2-check-point");
 const ruou2 = document.getElementById("ruou2");
 const ruouImgList = [];
@@ -15,29 +16,10 @@ let img;
 let change = false;
 let deg = 40;
 const sec4_state_1 = document.getElementById("sec4_state_1");
-
-async function preLoadRuou() {
-    for (let i = 1; i <= frameCount;i++) {
-        const img = new Image();
-        img.src = `video/ruou${i}.png`;
-        img.id = "ruou-img";
-        ruouImgList.push(img);
-    }
-}
+let start_agl = 45;
 
 window.onload = async function () {
-    await preLoadRuou();
     centerBanner();
-
-    window.addEventListener('scroll', e => { 
-        if (window.scrollY < endScroll) {
-            // ruouImgCon.innerHTML = "";
-            // ruouImgCon.appendChild(ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))]);
-            // ruouImgCon.children[0].style.height = ruouHeight;
-            img = ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))];
-            change = true;
-        }
-    });
 
     requestAnimationFrame(updateRuou);
 };
@@ -48,7 +30,7 @@ function centerBanner() {
     const rect = cen_banner.getBoundingClientRect();
 
     cen_banner.style.top = `${window.innerHeight / 2 - rect.height / 2}px`;
-    cen_banner.style.left = `${window.innerWidth / 1.8 - rect.width / 2}px`;
+    cen_banner.style.left = `${window.innerWidth / 2 - rect.width / 2}px`;
 }
 
 window.addEventListener('resize', e => {
@@ -62,16 +44,18 @@ function moveRuou(p) {
     ruouImgCon.style.top = "0px";
     ruouImgCon.style.left = "0px";
     // cen_banner.style.transform = `rotate(${40 * (1 - p)}deg)`;
+    // ruouImgCon.style.transform = `translate(0px, 0px)`;
 
     const rectRuou = ruouImgCon.getBoundingClientRect();
     const rectCenBanner = cen_banner.getBoundingClientRect();
 
     ruouImgCon.style.top = `${(rectCenBanner.y - rectRuou.y) * (1 - p)}px`;
     ruouImgCon.style.left = `${(rectCenBanner.x - rectRuou.x) * (1 - p)}px`;
-    // ruouImgCon.style.transform = `rotate(${40 * (1 - p)}deg)`;
-    ruouHeight = `${endSize * p + startSize * (1 - p)}px`;
-    // ruouImgCon.children[0].style.height = ruouHeight;
+    ruouImgCon.children[0].style.height = `${startSize * (1 - p) + endSize * p}px`;
+    ruouImg.style.transform = `rotate(${start_agl * (1 - p)}deg)`;
+    // ruouImgCon.style.transform = `translate(${(rectCenBanner.x - rectRuou.x) * (1 - p)}px, ${(rectCenBanner.y - rectRuou.y) * (1 - p)}px)`;
 }
+
 let ot = 0;
 
 const rice_img = document.getElementById("small-img");
@@ -146,13 +130,6 @@ function updateRuou(t) {
 
     let progress = window.scrollY / endScroll;
     moveRuou(progress);
-
-    if (change) {
-        change = false;
-        ruouImgCon.innerHTML = "";
-        ruouImgCon.appendChild(ruouImgList[Math.floor((1 - window.scrollY / endScroll) * (frameCount - 1))]);
-        ruouImgCon.children[0].style.height = ruouHeight;
-    }
 
     requestAnimationFrame(updateRuou);
 }
